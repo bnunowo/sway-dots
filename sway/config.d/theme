@@ -1,0 +1,37 @@
+# Apply gtk theming
+exec_always ~/.config/sway/scripts/import-gsettings
+
+# Set inner/outer gaps
+gaps inner 7
+gaps outer 5
+
+# Hide titlebar on windows:
+default_border pixel 2
+
+# Default Font
+font pango:Noto Sans Regular 10
+
+# Thin borders:
+smart_borders on
+
+# Set wallpaper:
+exec swaybg -i ~/.config/sway/tokyo-night01.png
+
+# Title format for windows
+for_window [shell="xdg_shell"] title_format "%title (%app_id)"
+for_window [shell="x_wayland"] title_format "%class - %title"
+
+## Window decoration
+# class                 border  backgr. text    indicator child_border
+client.focused          #7aa2f7 #414868 #c8d3f5 #7dcfff   #86e1fc
+client.focused_inactive #7aa2f7 #414868 #c8d3f5 #7dcfff   #86e1fc
+client.unfocused        #414868 #24283b #3b4261 #7dcfff   #16161e
+client.urgent           #e0af68 #e0af68 #ff757f #7dcfff   #ff757f
+
+#
+# Status Bar:
+#
+# Read `man 5 sway-bar` for more information about this section.
+bar {
+    swaybar_command waybar
+}
